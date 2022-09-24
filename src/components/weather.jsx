@@ -17,9 +17,11 @@ const Weather=_=>{
 
   const Fetch = () => {
     fetch(
+    //  ` https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=0cf623d8f40213130b0baa58dc9450c3`
       `http://api.weatherapi.com/v1/forecast.json?key=d08d88f4b53d43e3b0a170442222002&q=${place}&days=1&aqi=no&alerts=no`
     )
       .then((response) => response.json())
+      
       .then((data) =>
         setInfo({
           names: data.location.name,
@@ -31,7 +33,6 @@ const Weather=_=>{
           condition: data.current.condition.text
         })
       );
-
     setPlace("");
   };
 
